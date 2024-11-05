@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Suggestion</title>
+    
+</head>
+<body>
+    <h1>Add a Customer Suggestion for {{ chocolate.name }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="flavor_suggestion">Flavor Suggestion:</label>
+        <input type="text" id="flavor_suggestion" name="flavor_suggestion" required>
+        
+        <label for="customer_name">Your Name (optional):</label>
+        <input type="text" id="customer_name" name="customer_name">
+        
+        <label for="allergy_concerns">Allergy Concerns:</label>
+        <textarea id="allergy_concerns" name="allergy_concerns"></textarea>
+
+        <button type="submit">Submit Suggestion</button>
+    </form>
+    <p><a href="{% url 'view_entries' chocolate.id %}">Back to Chocolate Details</a></p>
+</body>
+</html>

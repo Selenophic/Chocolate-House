@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Seasonal Flavor</title>
+    
+</head>
+<body>
+    <h1>Add a Seasonal Flavor for {{ chocolate.name }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="name">Flavor Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea>
+
+        <label for="availability">Availability:</label>
+        <input type="text" id="availability" name="availability" required>
+
+        <button type="submit">Add Flavor</button>
+    </form>
+    <p><a href="{% url 'view_entries' chocolate.id %}">Back to Chocolate Details</a></p>
+</body>
+</html>
+

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        p.large-text {
+            font-size: 20px;
+        }
+        body{
+            background-color: #e0f7fa;
+        }
+        .custom-button {
+            background-color: #8cc6bfa0; /* Green background */
+            color: white; /* Text color */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .custom-button:hover {
+            background-color: #8cc6bfa0; /* Darker green on hover */
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>Chocolate House</title>
+</head>
+<body>
+    <h1>Welcome to the Chocolate House </h1>
+    <nav>
+        <ul>
+            <button class="custom-button"><a href="{% url 'add_chocolate' %}">Add Chocolate</a></button>
+        </ul>
+    </nav>
+    <h2>Chocolates</h2> 
+    <ul>
+        {% for chocolate in chocolates %}
+            <li>
+               <p class="large-text"><b>{{ chocolate.name }}</b> - {{ chocolate.description }}</p><p style="padding-left: 800px;">
+                <button class="custom-button"><a href="{% url 'view_entries' chocolate.id %}">View Details</a></button>
+                <button class="custom-button"><a href="{% url 'add_flavor' chocolate.id %}">Add Flavor</a></button>
+                <button class="custom-button"><a href="{% url 'add_ingredient' chocolate.id %}">Add Ingredient</a></button>
+                <button class="custom-button"><a href="{% url 'add_suggestion' chocolate.id %}">Add Suggestion</a></button></p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

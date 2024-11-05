@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Chocolate</title>
+    
+</head>
+<body>
+    <h1>Add a Chocolate</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="name">Chocolate Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="description">Description:</label>
+        <textarea id="description" name="description"></textarea>
+        
+        <button type="submit">Add Chocolate</button>
+    </form>
+    <p><a href="{% url 'index' %}">Back to Home</a></p>
+</body>
+</html>

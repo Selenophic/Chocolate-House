@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            background-color: #fcfcf2;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>View Entries for {{ chocolate.name }}</title>
+    
+</head>
+<body>
+    <h1>View Entries for {{ chocolate.name }}</h1>
+    
+    <h2>Seasonal Flavors</h2>
+    <ul>
+        {% for flavor in flavors %}
+            <li><b>{{ flavor.name }}:</b> {{ flavor.description }} </li>
+            <li>Availability - {{ flavor.availability }}</li>
+        {% empty %}
+            <li>No seasonal flavors added.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Ingredients</h2>
+    <ul>
+        {% for ingredient in ingredients %}
+            <li>{{ ingredient.name }}: {{ ingredient.quantity }} {{ ingredient.unit }}</li>
+        {% empty %}
+            <li>No ingredients added.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Customer Suggestions</h2>
+    <ul>
+        {% for suggestion in suggestions %}
+            <li>{{ suggestion.flavor_suggestion }} (by {{ suggestion.customer_name }} - Allergies: {{ suggestion.allergy_concerns }})</li>
+        {% empty %}
+            <li>No suggestions made.</li>
+        {% endfor %}
+    </ul>
+
+    <p><a href="{% url 'index' %}">Back to Home</a></p>
+</body>
+</html>
